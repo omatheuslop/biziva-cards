@@ -5,7 +5,6 @@ import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import debounce from 'lodash.debounce'
 import ms from 'ms'
-import { Controlled as CodeMirror } from 'react-codemirror2'
 
 hljs.registerLanguage('javascript', javascript)
 
@@ -22,6 +21,17 @@ import {
   DEFAULT_SETTINGS,
   THEMES_HASH,
 } from '../lib/constants'
+
+// CodeMirror needs document. Load it only in the browser and preserve its editor ref.
+const CodeMirror = dynamic(
+  () => import('react-codemirror2').then(({ Controlled }) => {
+    function ClientCodeMirror({ editorRef, ...props }) {
+      return <Controlled {...props} ref={editorRef} />
+    }
+    return ClientCodeMirror
+  }),
+  { ssr: false }
+)
 
 const SelectionEditor = dynamic(() => import('./SelectionEditor'), {
   loading: () => null,
@@ -210,7 +220,7 @@ class Carbon extends React.PureComponent {
                 />
               ) : null}
               <CodeMirror
-                ref={this.props.editorRef}
+                editorRef={this.props.editorRef}
                 className={`CodeMirror__container window-theme__${config.windowTheme}`}
                 value={this.props.children}
                 options={options}
