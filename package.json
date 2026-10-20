@@ -25,7 +25,9 @@
     "contrib:add": "all-contributors add",
     "contrib:build": "all-contributors generate",
     "cy:run": "cypress run --config-file cypress/config.json",
-    "cy:open": "cypress open --config-file cypress/config.json"
+    "cy:open": "cypress open --config-file cypress/config.json",
+    "biziva": "node public/biziva/server.mjs",
+    "test:biziva": "node --test public/biziva/*.test.mjs"
   },
   "dependencies": {
     "@next/bundle-analyzer": "latest",
