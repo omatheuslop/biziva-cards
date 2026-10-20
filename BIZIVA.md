@@ -11,3 +11,5 @@ Recursos externos do upstream, login, nuvem, colaboração e transferências ent
 Alterações independentes desta versão realizadas em **19/10/2026 (Brasília)**. Copyright e licença dos autores originais mantidos.
 
 Compatibilidade SSR: CodeMirror é importado apenas no navegador. A referência da instância do editor é encaminhada por editorRef, preservando seleção e exportação.
+
+Correções adicionais de compatibilidade: a navegação do editor preserva query de estado e usa a rota raiz quando não há snippetId. Os testes de redirecionamento verificam HTTP307 e Location no servidor local, mantendo os destinos originais, sem navegar por serviços externos no Cypress.
