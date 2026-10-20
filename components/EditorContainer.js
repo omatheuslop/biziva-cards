@@ -58,15 +58,16 @@ function EditorContainer(props) {
   const snippetId = snippet && snippet.id
   React.useEffect(() => {
     const snippetPath = '/' + (snippetId || '')
-    if (snippetPath === props.router.asPath) {
+    // Query parameters describe editor state, not a different snippet.
+    if (snippetPath === props.router.asPath.split(/[?#]/)[0]) {
       return
     }
     
     // Reloads only if the snipped.id is different from before. Otherwise returns from above.
     props.router.push(
       {
-        pathname: '/[id]',
-        query: { id: snippetId },
+        pathname: snippetId ? '/[id]' : '/',
+        query: snippetId ? { id: snippetId } : {},
       }, 
       snippetPath, 
       { 
