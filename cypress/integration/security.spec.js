@@ -25,24 +25,27 @@ describe('security', () => {
     })
   })
   it('/offsets -> Project Wren', () => {
-    cy.visit(`/offsets`)
-    cy.url().should(
-      'eq',
-      'https://www.wren.co/join/carbon?utm_campaign=share&utm_medium=profile_referral_link'
-    )
+    cy.request({ url: '/offsets', followRedirect: false }).then(response => {
+      expect(response.status).to.eq(307)
+      expect(response.headers.location).to.eq(
+        'https://www.wren.co/join/carbon?utm_campaign=share&utm_medium=profile_referral_link'
+      )
+    })
   })
   it('/privacy -> Privacy policy', () => {
-    cy.visit(`/privacy`)
-    cy.url().should(
-      'eq',
-      'https://carbon-app.notion.site/PRIVACY-POLICY-65f08f57a8a14f91931d778f9a471a7d'
-    )
+    cy.request({ url: '/privacy', followRedirect: false }).then(response => {
+      expect(response.status).to.eq(307)
+      expect(response.headers.location).to.eq(
+        'https://carbon-app.notion.site/PRIVACY-POLICY-65f08f57a8a14f91931d778f9a471a7d'
+      )
+    })
   })
   it('/terms -> Terms', () => {
-    cy.visit(`/terms`)
-    cy.url().should(
-      'eq',
-      'https://carbon-app.notion.site/TERMS-OF-USE-d159661077fe4ef2974e6108b36aeece'
-    )
+    cy.request({ url: '/terms', followRedirect: false }).then(response => {
+      expect(response.status).to.eq(307)
+      expect(response.headers.location).to.eq(
+        'https://carbon-app.notion.site/TERMS-OF-USE-d159661077fe4ef2974e6108b36aeece'
+      )
+    })
   })
 })
