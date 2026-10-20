@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Transforme uma mensagem em SVG editável ou PNG. Sem dependências externas, upload ou geração paga."
+    />
+    <title>Biziva Cards · Workspace</title>
+    <link rel="icon" href="./brand.svg" />
+    <link rel="stylesheet" href="./brand.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="./"
+        ><img src="./brand.svg" alt="" /><span>BIZIVA <span class="product">/ CARDS</span></span></a
+      >
+      <nav>
+        <a
+          href="https://github.com/omatheuslop/biziva-cards"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Código e instalação ↗</a
+        >
+      </nav>
+    </header>
+    <main>
+      <span class="eyebrow">Workspace local · versão 1.0</span>
+      <h1>Uma ideia. Um card de presença.</h1>
+      <p>
+        Transforme uma mensagem em SVG editável ou PNG. Sem dependências externas, upload ou geração
+        paga.
+      </p>
+      <div class="workspace">
+        <section class="panel">
+          <h2>01 / Sua entrada</h2>
+          <form id="form">
+            <div class="fields" id="fields"></div>
+            <div class="actions">
+              <button id="run" type="submit">Criar card</button
+              ><button id="clear" type="button" class="secondary">Limpar</button>
+            </div>
+          </form>
+          <div class="actions">
+            <button class="secondary" id="save-project">Salvar entrada</button
+            ><button class="secondary" id="restore">Restaurar entrada</button
+            ><input
+              type="file"
+              id="restore-file"
+              accept="application/json,.json"
+              aria-label="Arquivo do projeto"
+              hidden
+            />
+          </div>
+          <p class="note">
+            O arquivo salvo inclui o conteúdo da entrada. Não há salvamento automático nem envio à
+            IA.
+          </p>
+        </section>
+        <section class="panel">
+          <h2>02 / Revise e exporte</h2>
+          <img id="preview" alt="Prévia do card criado" hidden />
+          <pre id="output">O resultado aparecerá aqui após sua revisão.</pre>
+          <div class="actions">
+            <button id="download" disabled>Baixar resultado</button
+            ><button class="secondary" id="png" hidden>Baixar PNG</button>
+          </div>
+          <div id="status" role="status" aria-live="polite"></div>
+          <p class="note">
+            Processamento local. Nenhum arquivo é enviado por este workspace. Os serviços opcionais
+            do app original têm configuração própria.
+          </p>
+        </section>
+      </div>
+    </main>
+    <footer>
+      Biziva · evolução independente de
+      <a href="https://github.com/carbon-app/carbon">carbon-app/carbon</a> · licença MIT.<br />Projeto
+      original completo e créditos preservados. Não há vínculo oficial com os autores.
+    </footer>
+    <script type="application/json" id="config">
+      {
+        "title": "Uma ideia. Um card de presença.",
+        "subtitle": "Transforme uma mensagem em SVG editável ou PNG. Sem dependências externas, upload ou geração paga.",
+        "action": "Criar card",
+        "fields": [
+          ["brand", "Sua marca", "text", "STUDIO DALLAS"],
+          ["title", "Título — até 64 caracteres", "text", "Seu próximo capítulo começa aqui."],
+          [
+            "body",
+            "Mensagem — até 180 caracteres",
+            "textarea",
+            "Uma presença profissional para valorizar o que sua empresa faz de melhor."
+          ],
+          ["cta", "Chamada — até 40 caracteres", "text", "Conheça nosso trabalho"],
+          ["color", "Cor de destaque", "color", "#db2346"],
+          [
+            "format",
+            "Formato",
+            "select",
+            [
+              ["square", "Quadrado · 1080 × 1080"],
+              ["portrait", "Retrato · 1080 × 1350"]
+            ]
+          ]
+        ],
+        "id": "cards"
+      }
+    </script>
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>
