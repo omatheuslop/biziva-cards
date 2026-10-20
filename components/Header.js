@@ -1,12 +1,13 @@
 import React from 'react'
-import Logo from './svg/Logo'
 
 const Header = ({ enableHeroText }) => (
   <header role="banner" className="mb4">
     <div className="header-content">
       <a id="link-home" href="/" aria-label="Home">
-        <Logo />
+        <img src="/biziva/brand.svg" alt="" width="42" height="42" /><strong style={{marginLeft:12,fontSize:28,color:"#f8f4ef"}}>BIZIVA CARDS</strong>
       </a>
+      <a href="/biziva/index.html" style={{height:"auto",marginTop:20,color:"#ff6a87"}}>Cards de campanha em SVG e PNG →</a>
+      <small style={{marginTop:10}}>Editor baseado no Carbon · evolução independente Biziva</small>
       {enableHeroText ? (
         <h2 className="mt3">
           Create and share beautiful images of your source code.

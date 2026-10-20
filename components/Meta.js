@@ -42,9 +42,9 @@ export const CodeMirrorLink = () => (
   />
 )
 
-const title = 'Carbon'
+const title = 'Biziva Cards'
 const description =
-  'Carbon is the easiest way to create and share beautiful images of your source code.'
+  'Biziva Cards: cards de campanha e editor de código baseado no Carbon.'
 export const MetaTags = React.memo(() => (
   <Head>
     <meta charSet="utf-8" />
@@ -52,7 +52,6 @@ export const MetaTags = React.memo(() => (
     <meta name="description" content={description} />
     <meta name="application-name" content={title} />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@carbon_app" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://carbon.now.sh/static/brand/banner.png" />
@@ -62,7 +61,7 @@ export const MetaTags = React.memo(() => (
     <meta name="theme-color" content={COLORS.BLACK} />
     <meta name="apple-mobile-web-app-status-bar-style" content={COLORS.BLACK} />
     <title>{title} | Create and share beautiful images of your source code</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/biziva/brand.svg" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/static/brand/apple-touch-icon.png" />
   </Head>
